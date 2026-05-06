@@ -8,9 +8,14 @@ Specifically, the project focuses on estimating concentrations of Lead (Pb) and 
 
 
 ### Authors:
+
 Ambrogi Federico , 01449911@student.tuwien.ac.at
+
 Puthenpurayil Biju Vijayalakshmi
+
 Saad Rashidul Amin
+
+Farooq Mian Azan
 
 
 ## Objectives
@@ -29,6 +34,7 @@ Use predicted Pb to predict Cd
 
 Predict Pb and Cd simultaneously using a single model
 
+
 ## Data Source
 
 The dataset is publicly available from the TU Wien Research Data Repository
@@ -41,17 +47,25 @@ It includes:
 
 For a full documentation, please refer to the project overview in *doc*
 
+
 ## Run
 To run the experiment, open a python jupyter lab and run the notebook in
+
 *notebooks/predict_heavymetal_precipitation.ipynb*
+
+The yaml file *conda_env.yaml* contains the anaconda enviromental variables for the reproduction of the experiment.
+
 
 ## Output
 - Plots will be created inside the *output/figures* directory
 - Models will be sotred inside the *output/models* directory
 
+
 ### Project Structure
 Here an overview of the structure of the project folder organization
-project/
+
+'''
+project_root/
 ├── data/
 │   ├── precipitation.csv
 │   ├── stationcoordinates.csv
@@ -67,3 +81,4 @@ project/
 │
 ├── notebooks/
 │   └── predict_heavymetal_precipitation.ipynb  
+'''
