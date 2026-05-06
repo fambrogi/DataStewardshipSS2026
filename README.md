@@ -64,7 +64,7 @@ The yaml file *conda_env.yaml* contains the anaconda enviromental variables for 
 ### Project Structure
 Here an overview of the structure of the project folder organization
 
-'''
+```
 project_root/
 ├── data/
 │   ├── precipitation.csv
@@ -81,4 +81,6 @@ project_root/
 │
 ├── notebooks/
 │   └── predict_heavymetal_precipitation.ipynb  
-'''
+|
+├── conda_env.yaml
+```
