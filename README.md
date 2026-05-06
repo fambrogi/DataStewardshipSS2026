@@ -42,7 +42,7 @@ The dataset is publicly available from the TU Wien Research Data Repository
 It includes:
 
 - precipitation chemistry variables
-- heavy metal concentrations (Pb, Cd)
+- heavy metal concentrations (*Pb*, *Cd*)
 - quality flags indicating data validity
 
 For a full documentation, please refer to the project overview in *doc*
@@ -53,7 +53,12 @@ To run the experiment, open a python jupyter lab and run the notebook in
 
 *notebooks/predict_heavymetal_precipitation.ipynb*
 
-The yaml file *conda_env.yaml* contains the anaconda enviromental variables for the reproduction of the experiment.
+
+The file 
+
+*conda_env.yaml* 
+
+contains the anaconda enviromental variables for the reproduction of the experiment.
 
 
 ## Output
@@ -61,7 +66,8 @@ The yaml file *conda_env.yaml* contains the anaconda enviromental variables for 
 - Models will be sotred inside the *output/models* directory
 
 
-### Project Structure
+### File organisation
+
 Here an overview of the structure of the project folder organization
 
 ```
