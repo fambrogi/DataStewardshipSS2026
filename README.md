@@ -1,92 +1,279 @@
 # Prediction of Heavy Metal Concentrations (Pb, Cd) in Precipitation Using Machine Learning
 
-Data Stewardship SS2026 Implementation of a fully reproducible ML Experiment
+Data Stewardship SS2026 — FAIR and Reproducible Machine Learning Experiment
 
-This repository contains a machine learning experiment developed within a Data Stewardship framework, aiming to predict missing environmental variables in precipitation chemistry datasets.
+---
 
-Specifically, the project focuses on estimating concentrations of Lead (Pb) and Cadmium (Cd), which are not consistently measured across all monitoring stations due to lack of appropriate sensors, which constitute hazarduous pollutants.
+## Project Overview
 
+This repository contains a machine learning experiment developed within a Data Stewardship and FAIR data management framework.
 
-### Authors:
+The project investigates the prediction of missing heavy metal concentrations in precipitation chemistry datasets collected at Austrian monitoring stations.
 
-Ambrogi Federico , 01449911@student.tuwien.ac.at
+Specifically, the experiment focuses on predicting:
 
-Puthenpurayil Biju Vijayalakshmi, e12551187@student.tuwien.ac.at
+* Lead concentration (`Pb`)
+* Cadmium concentration (`Cd`)
 
-Saad Rashidul Amin
+using environmental precipitation chemistry measurements and machine learning models.
 
-Farooq Mian Azan
+The repository also includes the relational DBRepo infrastructure developed for WP2/T2.1 of the course assignment.
 
+---
+
+## Authors
+
+* Federico Ambrogi — [01449911@student.tuwien.ac.at](mailto:01449911@student.tuwien.ac.at)
+* Puthenpurayil Biju Vijayalakshmi
+* Saad Rashidul Amin
+* Farooq Mian Azan
+
+---
 
 ## Objectives
 
-Two machine learning approaches are implemented and compared:
+Two machine learning approaches are implemented and compared.
 
+### 1. Sequential Prediction
 
-**1.Sequential Prediction**
+* Predict Pb using available environmental variables
+* Use predicted Pb values to predict Cd
 
-Predict Pb using available features
+### 2. Multi-output Prediction
 
-Use predicted Pb to predict Cd
+* Predict Pb and Cd simultaneously using a single model
 
-
-**2. Multi-output Prediction**
-
-Predict Pb and Cd simultaneously using a single model
-
+---
 
 ## Data Source
 
-The dataset is publicly available from the TU Wien Research Data Repository
+The experiment reuses the dataset:
 
-It includes:
+**Concentrations of major ions in wet precipitation samples in Austria**
 
-- precipitation chemistry variables
-- heavy metal concentrations (*Pb*, *Cd*)
-- quality flags indicating data validity
+Original repository:
+TU Wien Research Data Repository
 
-For a full documentation, please refer to the project overview in *doc*
+Original DOI:
+https://doi.org/10.48436/b0g4h-rv840
 
+The dataset includes:
 
-## Run
-To run the experiment, open a python jupyter lab and run the notebook in
+* precipitation chemistry measurements,
+* ion concentrations,
+* pH values,
+* conductivity,
+* Pb and Cd concentrations,
+* quality flags,
+* station metadata.
 
-*notebooks/predict_heavymetal_precipitation.ipynb*
+The student group did not create the original precipitation measurements.
+The repository restructures and documents the data for FAIR and reproducible reuse within the course assignment.
 
+---
 
-The file 
+## Repository Structure
 
-*conda_env.yaml* 
-
-contains the anaconda enviromental variables for the reproduction of the experiment.
-
-
-## Output
-- Plots will be created inside the *output/figures* directory
-- Models will be sotred inside the *output/models* directory
-
-
-### File organisation
-
-Here an overview of the structure of the project folder organization
-
-```
-project_root/
+```text
+DataStewardshipSS2026/
+│
 ├── data/
-│   ├── precipitation.csv
+│   ├── precipitationdata.csv
 │   ├── stationcoordinates.csv
+│   └── README.md
 │
-├── src/
-│   ├── preprocessing.py
-│   ├── models.py
-│   ├── evaluation.py
-│
-├── outputs/
-│   ├── figures/
-│   ├── models/
+├── docs/
+│   ├── HeavyMetal_Precipitation_Project.pdf
+│   ├── data_dictionary.md
+│   ├── provenance.md
+│   └── README.md
 │
 ├── notebooks/
-│   └── predict_heavymetal_precipitation.ipynb  
-|
-├── conda_env.yaml
+│   ├── dbrepo_schema_creation.ipynb
+│   └── predict_heavymetal_precipitation.ipynb
+│
+├── outputs/
+│   ├── diagrams/
+│   │   └── er_diagram.png
+│   │
+│   ├── figures/
+│   │   ├── fig_cd_prediction.png
+│   │   ├── fig_feature_importance.png
+│   │   └── fig_pb_prediction.png
+│   │
+│   └── models/
+│       ├── model_cd_randomforest.pkl
+│       └── model_multi_randomforest.pkl
+│
+├── sql/
+│   └── create_tables.sql
+│
+├── src/
+│   ├── evaluation.py
+│   ├── models.py
+│   ├── preprocessing.py
+│   └── utils.py
+│
+├── .env
+├── .gitignore
+├── __init__.py
+├── conda_env
+└── README.md
 ```
+
+---
+
+## Main Components
+
+### `notebooks/predict_heavymetal_precipitation.ipynb`
+
+Main machine learning workflow notebook containing:
+
+* preprocessing,
+* train/validation/test splitting,
+* model training,
+* evaluation,
+* prediction generation,
+* visualization generation.
+
+---
+
+### `notebooks/dbrepo_schema_creation.ipynb`
+
+WP2/T2.1 notebook implementing:
+
+* relational schema design,
+* Third Normal Form (3NF) restructuring,
+* SQL schema generation,
+* ER diagram generation,
+* DBRepo table creation through the REST API,
+* metadata documentation,
+* provenance-aware publication.
+
+---
+
+### `docs/data_dictionary.md`
+
+Documents:
+
+* all relational tables,
+* column meanings,
+* units,
+* variable descriptions,
+* quality flag information.
+
+---
+
+### `docs/provenance.md`
+
+Documents:
+
+* original dataset source,
+* creators and DOI,
+* transformation workflow,
+* generated artefacts,
+* DBRepo publication process,
+* reproducibility information.
+
+---
+
+## Running the Experiment
+
+To run the experiment:
+
+1. Open Jupyter Lab or Jupyter Notebook
+2. Open:
+
+```text
+notebooks/predict_heavymetal_precipitation.ipynb
+```
+
+3. Execute the notebook cells sequentially.
+
+---
+
+## Environment
+
+The conda environment configuration is provided in:
+
+```text
+conda_env
+```
+
+This environment contains the required Python dependencies for reproducing the experiment.
+
+---
+
+## Generated Outputs
+
+### Figures
+
+Generated plots are stored in:
+
+```text
+outputs/figures/
+```
+
+Examples include:
+
+* prediction comparison plots,
+* feature importance plots,
+* evaluation visualizations.
+
+---
+
+### Trained Models
+
+Serialized trained models are stored in:
+
+```text
+outputs/models/
+```
+
+---
+
+### Database Infrastructure Outputs
+
+Database-related outputs are stored in:
+
+```text
+outputs/diagrams/
+sql/
+```
+
+including:
+
+* ER diagrams,
+* SQL CREATE statements.
+
+---
+
+## FAIR and Stewardship Documentation
+
+### Data Dictionary
+
+The relational schema documentation is available in:
+
+```text
+docs/data_dictionary.md
+```
+
+---
+
+### Provenance Documentation
+
+Detailed provenance information is available in:
+
+```text
+docs/provenance.md
+```
+
+This includes:
+
+* original dataset provenance,
+* transformation workflow,
+* DBRepo publication steps,
+* student group contributions,
+* reproducibility information.
+
+---
