@@ -277,3 +277,26 @@ This includes:
 * reproducibility information.
 
 ---
+## Licences
+
+This project has three different types of artefacts and each one has its own licence. They are not the same so it is important to consider them separately.
+
+### Input data
+
+The source dataset "Concentrations of major ions in wet precipitation samples in Austria" is published under **Creative Commons Attribution NonCommercial ShareAlike 4.0 International (CC BY-NC-SA 4.0)** by the original creators Peter Redl, Thomas Steinkogler, and Anne Kasper-Giebl.
+
+DOI: https://doi.org/10.48436/b0g4h-rv840
+
+Our use of this dataset is permitted under this licence since it is strictly for non-commercial academic research. Two things to note from this licence: the NonCommercial clause means neither this project nor its outputs can be used for commercial purposes, and the ShareAlike clause means any derived datasets we produce must be released under the same CC BY-NC-SA 4.0 licence.
+
+### Software and code
+
+All code in this repository is released under the **MIT licence**. See the [LICENSE](LICENSE) file for the full text.
+
+MIT was chosen because it is simple and permissive, and it lets anyone use, modify and share the code freely. It is compatible with the CC BY-NC-SA 4.0 input data licence because the code is an independent software artefact and not a derived work of the data itself. Anyone who runs this code on the same dataset still needs to respect the CC BY-NC-SA 4.0 terms of the original data.
+
+### Output data
+
+The outputs of this project including the trained models, prediction results, evaluation figures and confusion matrices are released under **Creative Commons Attribution NonCommercial ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
+
+Since the input dataset has a ShareAlike clause, any derived works need to carry the same licence. The output data is derived from that source so CC BY-NC-SA 4.0 applies here as well. This licence is also stated in all deposit records in the TU Wien Research Data Repository.
