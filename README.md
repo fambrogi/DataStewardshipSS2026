@@ -300,3 +300,62 @@ MIT was chosen because it is simple and permissive, and it lets anyone use, modi
 The outputs of this project including the trained models, prediction results, evaluation figures and confusion matrices are released under **Creative Commons Attribution NonCommercial ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
 
 Since the input dataset has a ShareAlike clause, any derived works need to carry the same licence. The output data is derived from that source so CC BY-NC-SA 4.0 applies here as well. This licence is also stated in all deposit records in the TU Wien Research Data Repository.
+
+## SQL Views
+
+The following SQL VIEW definitions were created to provide denormalised and ML-ready access to the relational DBRepo schema.
+
+### ml_precipitation_features
+Purpose:
+Provides a cleaned, denormalised feature table for machine learning by joining precipitation measurements with station metadata and filtering invalid measurements using quality flags.
+
+### pb_prediction_dataset
+Purpose:
+Provides training-ready records for Lead (Pb) prediction by selecting observations with valid Pb measurements.
+
+### cd_prediction_dataset
+Purpose:
+Provides training-ready records for Cadmium (Cd) prediction by selecting observations with valid Cd measurements.
+
+The views are defined in:
+
+sql/create_views.sql
+
+## DBRepo REST API Reimplementation
+
+The original local CSV-based loading was reimplemented to exclusively use the DBRepo REST API, as required in WP2/T2.6.
+
+No local CSV reads are used in the final experiment code.
+
+### API Base URL
+
+https://test.dbrepo.tuwien.ac.at/api
+
+### Database ID
+
+bfa4385b-54a9-4ae3-b4f4-cb503d7bb016
+
+### Endpoints Used
+
+ML feature view endpoint:
+
+ml_precipitation_features
+
+The experiment retrieves machine-learning-ready data directly from the DBRepo VIEW endpoint.
+
+### Authentication
+
+Authentication is handled using DBRepo credentials configured through the REST client.
+
+### Error Handling
+
+The implementation includes handling for:
+
+- connection failures
+- request timeouts
+- unexpected HTTP response codes
+- malformed API responses
+
+### Reproducibility Verification
+
+The API-based implementation was verified to produce identical machine learning outputs to the original local CSV-based experiment.
