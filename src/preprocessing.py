@@ -11,44 +11,55 @@ VIEW_ENDPOINT = (
 )
 
 
-def load_data():
+def load_data(path='csv'):
+    '''
+    Reading data from either csv files 
+    or from the DBRepo archive if path left unspecified/False 
+    '''
+    
+    if path:      
+        return pd.read_csv(path)
 
-    try:
-        response = requests.get(VIEW_ENDPOINT, timeout=30)
-
-        response.raise_for_status()
-
-        data = response.json()
-
-        if "data" not in data:
-            raise ValueError("Unexpected API response format")
-
-        df = pd.DataFrame(data["data"])
-
-        return df
-
-    except requests.exceptions.ConnectionError:
-        raise RuntimeError(
-            "Could not connect to DBRepo API"
-        )
-
-    except requests.exceptions.Timeout:
-        raise RuntimeError(
-            "DBRepo API request timed out"
-        )
-
-    except requests.exceptions.HTTPError as e:
-        raise RuntimeError(
-            f"Unexpected HTTP error: {e}"
-        )
-
-    except Exception as e:
-        raise RuntimeError(
-            f"Unexpected API loading error: {e}"
-        )
+    else:
+        try:
+            response = requests.get(VIEW_ENDPOINT, timeout=30)
+    
+            response.raise_for_status()
+    
+            data = response.json()
+    
+            if "data" not in data:
+                raise ValueError("Unexpected API response format")
+    
+            df = pd.DataFrame(data["data"])
+    
+            return df
+    
+        except requests.exceptions.ConnectionError:
+            raise RuntimeError(
+                "Could not connect to DBRepo API"
+            )
+    
+        except requests.exceptions.Timeout:
+            raise RuntimeError(
+                "DBRepo API request timed out"
+            )
+    
+        except requests.exceptions.HTTPError as e:
+            raise RuntimeError(
+                f"Unexpected HTTP error: {e}"
+            )
+    
+        except Exception as e:
+            raise RuntimeError(
+                f"Unexpected API loading error: {e}"
+            )
 
 
 def clean_dataframe(df):
+    '''
+    Simple dataframe cleaning from nans values
+    '''
     df = df.dropna(how="all")
     return df
 
