@@ -1,28 +1,96 @@
 import pandas as pd
 import numpy as np
+import requests
 
-def load_data(path):
-    return pd.read_csv(path)
+DBREPO_BASE_URL = "https://test.dbrepo.tuwien.ac.at/api"
+DATABASE_ID = "bfa4385b-54a9-4ae3-b4f4-cb503d7bb016"
 
-def apply_quality_flags(df):
-    for col in df.columns:
-        if "_flag" in col:
-            base = col.replace("_flag", "")
-            df.loc[df[col] != 1, base] = np.nan
-    return df
+VIEW_ENDPOINT = (
+    f"{DBREPO_BASE_URL}/v1/databases/"
+    f"{DATABASE_ID}/views/ml_precipitation_features/data"
+)
+
+
+def load_data(path='csv'):
+    '''
+    Reading data from either csv files 
+    or from the DBRepo archive if path left unspecified/False 
+    '''
+    
+    if path:      
+        return pd.read_csv(path)
+
+    else:
+        try:
+            response = requests.get(VIEW_ENDPOINT, timeout=30)
+    
+            response.raise_for_status()
+    
+            data = response.json()
+    
+            if "data" not in data:
+                raise ValueError("Unexpected API response format")
+    
+            df = pd.DataFrame(data["data"])
+    
+            return df
+    
+        except requests.exceptions.ConnectionError:
+            raise RuntimeError(
+                "Could not connect to DBRepo API"
+            )
+    
+        except requests.exceptions.Timeout:
+            raise RuntimeError(
+                "DBRepo API request timed out"
+            )
+    
+        except requests.exceptions.HTTPError as e:
+            raise RuntimeError(
+                f"Unexpected HTTP error: {e}"
+            )
+    
+        except Exception as e:
+            raise RuntimeError(
+                f"Unexpected API loading error: {e}"
+            )
+
 
 def clean_dataframe(df):
-    df = apply_quality_flags(df)
-    df = df[[col for col in df.columns if "_flag" not in col]]
+    '''
+    Simple dataframe cleaning from nans values
+    '''
     df = df.dropna(how="all")
     return df
 
+
 def feature_engineering(df):
-    df = pd.get_dummies(df, columns=["Ort"], drop_first=True)
+
+    df = pd.get_dummies(
+        df,
+        columns=["Ort"],
+        drop_first=True
+    )
+
     df["Datum"] = pd.to_datetime(df["Datum"])
-    df["date_ordinal"] = df["Datum"].map(pd.Timestamp.toordinal)
+
+    df["date_ordinal"] = (
+        df["Datum"]
+        .map(pd.Timestamp.toordinal)
+    )
+
     df = df.drop(columns=["Datum"])
+
     return df
 
+
 def prepare_features(df):
-    return [c for c in df.columns if c not in ["Pb", "Cd","date_ordinal"]]
+
+    return [
+        c for c in df.columns
+        if c not in [
+            "Pb",
+            "Cd",
+            "date_ordinal"
+        ]
+    ]
