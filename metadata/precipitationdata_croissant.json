@@ -1,0 +1,139 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/"
+  },
+  "@type": "Dataset",
+  "name": "Precipitation Chemistry Dataset",
+  "description": "Dataset containing precipitation chemistry measurements in Austria including heavy metal concentrations (Pb, Cd), ion concentrations, pH, conductivity, precipitation amount and quality flags.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Peter Redl"
+    },
+    {
+      "@type": "Person",
+      "name": "Thomas Steinkogler"
+    },
+    {
+      "@type": "Person",
+      "name": "Anne Kasper-Giebl"
+    }
+  ],
+  "url": "https://doi.org/10.48436/b0g4h-rv840",
+
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "./data/precipitationdata.csv",
+    "encodingFormat": "text/csv"
+  },
+
+  "recordSet": {
+    "@type": "cr:RecordSet",
+    "name": "precipitation_measurements",
+    "field": [
+
+      {
+        "@type": "cr:Field",
+        "name": "Datum",
+        "dataType": "date"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "NS",
+        "description": "Precipitation amount",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliM"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "LF",
+        "description": "Electrical conductivity",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MicroS-PER-CentiM"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "pH",
+        "description": "Acidity/basicity",
+        "dataType": "float"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "NH4",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Na",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "K",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Ca",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Mg",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Cl",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "NO3",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "SO4",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MilliGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Pb",
+        "description": "Lead concentration",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MicroGM-PER-L"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Cd",
+        "description": "Cadmium concentration",
+        "dataType": "float",
+        "unitCode": "http://qudt.org/vocab/unit/MicroGM-PER-L"
+      }
+    ]
+  }
+}

@@ -359,3 +359,22 @@ The implementation includes handling for:
 ### Reproducibility Verification
 
 The API-based implementation was verified to produce identical machine learning outputs to the original local CSV-based experiment.
+
+
+
+## Croissant Metadata
+
+Croissant JSON-LD metadata records are provided for all input datasets used in the experiment.
+
+Location:
+
+- `metadata/precipitationdata_croissant.json`
+- `metadata/stationcoordinates_croissant.json`
+
+The records document:
+
+- dataset structure
+- fields and datatypes
+- units using QUDT URIs
+- distribution information
+- licensing metadata
