@@ -1,0 +1,438 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Prediction of Heavy Metal Concentrations (Pb, Cd) in Precipitation Using Machine Learning",
+      "description": "FAIR Data Science group project for predicting Pb and Cd concentrations in Austrian precipitation samples using machine learning and environmental precipitation chemistry data.",
+      "datePublished": "2026-05-28",
+      "creator": [
+        {
+          "@id": "#saad-rashidul-amin"
+        },
+        {
+          "@id": "#puthenpurayil-biju-vijayalakshmi"
+        },
+        {
+          "@id": "#federico-ambrogi"
+        },
+        {
+          "@id": "#farooq-mian-azan"
+        }
+      ],
+      "license": {
+        "@id": "LICENSE"
+      },
+      "hasPart": [
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "LICENSE"
+        },
+        {
+          "@id": "data/precipitationdata.csv"
+        },
+        {
+          "@id": "data/stationcoordinates.csv"
+        },
+        {
+          "@id": "docs/model-card.md"
+        },
+        {
+          "@id": "docs/provenance.md"
+        },
+        {
+          "@id": "docs/data_dictionary.md"
+        },
+        {
+          "@id": "sql/create_tables.sql"
+        },
+        {
+          "@id": "notebooks/predict_heavymetal_precipitation.ipynb"
+        },
+        {
+          "@id": "notebooks/T2_1_dbrepo_schema_creation.ipynb"
+        },
+        {
+          "@id": "notebooks/T3_1_ROCrate.ipynb"
+        },
+        {
+          "@id": "notebooks/T3_3-FAIRML.ipynb"
+        },
+        {
+          "@id": "notebooks/T3_5_ModelCard.ipynb"
+        },
+        {
+          "@id": "src/models.py"
+        },
+        {
+          "@id": "src/preprocessing.py"
+        },
+        {
+          "@id": "src/evaluation.py"
+        },
+        {
+          "@id": "src/utils.py"
+        },
+        {
+          "@id": "outputs/models/model_cd_randomforest.pkl"
+        },
+        {
+          "@id": "outputs/models/model_multi_randomforest.pkl"
+        },
+        {
+          "@id": "outputs/metadata/precipitationdata_croissant.json"
+        },
+        {
+          "@id": "outputs/metadata/stationcoordinates_croissant.json"
+        },
+        {
+          "@id": "outputs/metadata/FAIRML_model_cd"
+        },
+        {
+          "@id": "outputs/metadata/FAIRML_model_multi"
+        },
+        {
+          "@id": "outputs/figures/"
+        },
+        {
+          "@id": "https://doi.org/10.48436/b0g4h-rv840"
+        },
+        {
+          "@id": "https://test.dbrepo.tuwien.ac.at/database/bfa4385b-54a9-4ae3-b4f4-cb503d7bb016/info"
+        },
+        {
+          "@id": "https://doi.org/10.70124/rwg1b-kfb59"
+        },
+        {
+          "@id": "https://doi.org/10.70124/kcmvz-fkw96"
+        }
+      ],
+      "isBasedOn": {
+        "@id": "https://doi.org/10.48436/b0g4h-rv840"
+      },
+      "subjectOf": [
+        {
+          "@id": "https://github.com/fambrogi/DataStewardshipSS2026"
+        },
+        {
+          "@id": "https://doi.org/10.5281/zenodo.20423764"
+        }
+      ]
+    },
+    {
+      "@id": "#saad-rashidul-amin",
+      "@type": "Person",
+      "name": "Saad Rashidul Amin",
+      "identifier": "https://orcid.org/0009-0004-0529-5546",
+      "roleName": "Role A"
+    },
+    {
+      "@id": "#puthenpurayil-biju-vijayalakshmi",
+      "@type": "Person",
+      "name": "Puthenpurayil Biju Vijayalakshmi",
+      "identifier": "https://orcid.org/0009-0000-1739-2336",
+      "roleName": "Role B"
+    },
+    {
+      "@id": "#federico-ambrogi",
+      "@type": "Person",
+      "name": "Federico Ambrogi",
+      "identifier": "https://orcid.org/0000-0002-9486-0444",
+      "roleName": "Role C"
+    },
+    {
+      "@id": "#farooq-mian-azan",
+      "@type": "Person",
+      "name": "Farooq Mian Azan",
+      "identifier": "https://orcid.org/0009-0006-7973-2483",
+      "roleName": "Role D"
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "name": "Project README",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "LICENSE",
+      "@type": "CreativeWork",
+      "name": "MIT License",
+      "description": "MIT licence for the software code and trained model artefacts in this project."
+    },
+    {
+      "@id": "data/precipitationdata.csv",
+      "@type": "File",
+      "name": "Precipitation chemistry data",
+      "encodingFormat": "text/csv",
+      "isBasedOn": {
+        "@id": "https://doi.org/10.48436/b0g4h-rv840"
+      },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      }
+    },
+    {
+      "@id": "data/stationcoordinates.csv",
+      "@type": "File",
+      "name": "Station coordinates data",
+      "encodingFormat": "text/csv",
+      "isBasedOn": {
+        "@id": "https://doi.org/10.48436/b0g4h-rv840"
+      },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      }
+    },
+    {
+      "@id": "outputs/metadata/precipitationdata_croissant.json",
+      "@type": "File",
+      "name": "Croissant metadata for precipitationdata.csv",
+      "encodingFormat": "application/ld+json",
+      "about": {
+        "@id": "data/precipitationdata.csv"
+      }
+    },
+    {
+      "@id": "outputs/metadata/stationcoordinates_croissant.json",
+      "@type": "File",
+      "name": "Croissant metadata for stationcoordinates.csv",
+      "encodingFormat": "application/ld+json",
+      "about": {
+        "@id": "data/stationcoordinates.csv"
+      }
+    },
+    {
+      "@id": "outputs/metadata/FAIRML_model_cd",
+      "@type": "File",
+      "name": "FAIR4ML metadata for Cd Random Forest model",
+      "encodingFormat": "application/ld+json",
+      "about": {
+        "@id": "outputs/models/model_cd_randomforest.pkl"
+      }
+    },
+    {
+      "@id": "outputs/metadata/FAIRML_model_multi",
+      "@type": "File",
+      "name": "FAIR4ML metadata for multi-output Random Forest model",
+      "encodingFormat": "application/ld+json",
+      "about": {
+        "@id": "outputs/models/model_multi_randomforest.pkl"
+      }
+    },
+    {
+      "@id": "docs/model-card.md",
+      "@type": "File",
+      "name": "Model Card",
+      "encodingFormat": "text/markdown",
+      "about": [
+        {
+          "@id": "outputs/models/model_cd_randomforest.pkl"
+        },
+        {
+          "@id": "outputs/models/model_multi_randomforest.pkl"
+        }
+      ]
+    },
+    {
+      "@id": "docs/provenance.md",
+      "@type": "File",
+      "name": "Provenance documentation",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "docs/data_dictionary.md",
+      "@type": "File",
+      "name": "Data dictionary",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "sql/create_tables.sql",
+      "@type": "File",
+      "name": "SQL schema definition",
+      "encodingFormat": "application/sql"
+    },
+    {
+      "@id": "notebooks/predict_heavymetal_precipitation.ipynb",
+      "@type": "SoftwareSourceCode",
+      "name": "Main machine learning workflow notebook",
+      "encodingFormat": "application/x-ipynb+json",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "notebooks/T2_1_dbrepo_schema_creation.ipynb",
+      "@type": "SoftwareSourceCode",
+      "name": "DBRepo schema creation notebook",
+      "encodingFormat": "application/x-ipynb+json",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "notebooks/T3_1_ROCrate.ipynb",
+      "@type": "SoftwareSourceCode",
+      "name": "RO-Crate metadata generation notebook",
+      "encodingFormat": "application/x-ipynb+json",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "notebooks/T3_3-FAIRML.ipynb",
+      "@type": "SoftwareSourceCode",
+      "name": "FAIR4ML metadata generation notebook",
+      "encodingFormat": "application/x-ipynb+json",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "notebooks/T3_5_ModelCard.ipynb",
+      "@type": "SoftwareSourceCode",
+      "name": "Model Card generation notebook",
+      "encodingFormat": "application/x-ipynb+json",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "src/models.py",
+      "@type": "SoftwareSourceCode",
+      "name": "Model training functions",
+      "programmingLanguage": "Python",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "src/preprocessing.py",
+      "@type": "SoftwareSourceCode",
+      "name": "Preprocessing functions",
+      "programmingLanguage": "Python",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "src/evaluation.py",
+      "@type": "SoftwareSourceCode",
+      "name": "Evaluation and plotting functions",
+      "programmingLanguage": "Python",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "src/utils.py",
+      "@type": "SoftwareSourceCode",
+      "name": "Utility functions",
+      "programmingLanguage": "Python",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "outputs/models/model_cd_randomforest.pkl",
+      "@type": "File",
+      "name": "Cadmium Random Forest model",
+      "encodingFormat": "application/octet-stream",
+      "description": "Trained Random Forest model artifact for Cd prediction in the sequential workflow.",
+      "license": {
+        "@id": "LICENSE"
+      },
+      "sameAs": {
+        "@id": "https://doi.org/10.70124/rwg1b-kfb59"
+      }
+    },
+    {
+      "@id": "outputs/models/model_multi_randomforest.pkl",
+      "@type": "File",
+      "name": "Multi-output Random Forest model",
+      "encodingFormat": "application/octet-stream",
+      "description": "Trained Random Forest model artifact for simultaneous Pb and Cd prediction.",
+      "license": {
+        "@id": "LICENSE"
+      },
+      "sameAs": {
+        "@id": "https://doi.org/10.70124/rwg1b-kfb59"
+      }
+    },
+    {
+      "@id": "outputs/figures/",
+      "@type": "Dataset",
+      "name": "Generated figures and evaluation visualizations",
+      "sameAs": {
+        "@id": "https://doi.org/10.70124/kcmvz-fkw96"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.48436/b0g4h-rv840",
+      "@type": "Dataset",
+      "name": "Concentrations of major ions in wet precipitation samples in Austria",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "creator": [
+        {
+          "@id": "#peter-redl"
+        },
+        {
+          "@id": "#thomas-steinkogler"
+        },
+        {
+          "@id": "#anne-kasper-giebl"
+        }
+      ]
+    },
+    {
+      "@id": "#peter-redl",
+      "@type": "Person",
+      "name": "Peter Redl"
+    },
+    {
+      "@id": "#thomas-steinkogler",
+      "@type": "Person",
+      "name": "Thomas Steinkogler"
+    },
+    {
+      "@id": "#anne-kasper-giebl",
+      "@type": "Person",
+      "name": "Anne Kasper-Giebl"
+    },
+    {
+      "@id": "https://github.com/fambrogi/DataStewardshipSS2026",
+      "@type": "SoftwareSourceCode",
+      "name": "GitHub repository",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "https://test.dbrepo.tuwien.ac.at/database/bfa4385b-54a9-4ae3-b4f4-cb503d7bb016/info",
+      "@type": "Dataset",
+      "name": "DBRepo database: austria_precipitation_project"
+    },
+    {
+      "@id": "https://doi.org/10.5281/zenodo.20423764",
+      "@type": "CreativeWork",
+      "name": "Zenodo archived GitHub release"
+    },
+    {
+      "@id": "https://doi.org/10.70124/rwg1b-kfb59",
+      "@type": "CreativeWork",
+      "name": "TUWRD model deposit",
+      "license": {
+        "@id": "LICENSE"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.70124/kcmvz-fkw96",
+      "@type": "Dataset",
+      "name": "TUWRD generated data deposit"
+    }
+  ]
+}

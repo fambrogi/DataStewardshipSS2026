@@ -2,11 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/1228036424.svg)](https://doi.org/10.5281/zenodo.20423764)
 
-
 ### Authors
 
 | Family name        | Name          | Student Id | ORCID               |
-|--------------------|---------------|------------|---------------------|
+| ------------------ | ------------- | ---------- | ------------------- |
 | Ambrogi            | Federico      | 01449911   | 0000-0002-9486-0444 |
 | Puthenpurayil Biju | Vijayalakshmi | 12551187   | 0009-0000-1739-2336 |
 | Saad               | Rashidul Amin | 12410035   | 0009-0004-0529-5546 |
@@ -23,8 +22,8 @@ collected at Austrian monitoring stations.
 
 Specifically, the experiment focuses on predicting:
 
-* Lead concentration (`Pb`)
-* Cadmium concentration (`Cd`)
+- Lead concentration (`Pb`)
+- Cadmium concentration (`Cd`)
 
 using environmental precipitation chemistry measurements and machine learning models.
 
@@ -38,12 +37,12 @@ Two machine learning approaches are implemented and compared.
 
 **1. Sequential Prediction**
 
-* Predict Pb using available environmental variables
-* Use predicted Pb values to predict Cd
+- Predict Pb using available environmental variables
+- Use predicted Pb values to predict Cd
 
 **2. Multi-output Prediction**
 
-* Predict Pb and Cd simultaneously using a single model
+- Predict Pb and Cd simultaneously using a single model
 
 ---
 
@@ -61,13 +60,13 @@ https://doi.org/10.48436/b0g4h-rv840
 
 The dataset includes:
 
-* precipitation chemistry measurements,
-* ion concentrations,
-* pH values,
-* conductivity,
-* Pb and Cd concentrations,
-* quality flags,
-* station metadata.
+- precipitation chemistry measurements,
+- ion concentrations,
+- pH values,
+- conductivity,
+- Pb and Cd concentrations,
+- quality flags,
+- station metadata.
 
 The student group did not create the original precipitation measurements.
 The repository restructures and documents the data for FAIR and reproducible reuse within the course assignment.
@@ -85,6 +84,9 @@ DataStewardshipSS2026/
 │   └── README.md
 │
 ├── docs/
+|   ├── model-card.md
+|   ├── validation/
+│   |   └── ro-crate-validation.txt
 │   ├── HeavyMetal_Precipitation_Project.pdf
 │   ├── data_dictionary.md
 │   ├── provenance.md
@@ -92,7 +94,16 @@ DataStewardshipSS2026/
 │
 ├── notebooks/
 │   ├── dbrepo_schema_creation.ipynb
-│   └── predict_heavymetal_precipitation.ipynb
+│   ├── mm.png
+│   ├── predict_heavymetal_precipitation.ipynb
+│   ├── T2_1_dbrepo_schema_creation.ipynb
+│   ├── T2_2_semantic_mapping.ipynb
+│   ├── T2_3-Units_5-DBRepoLoadView.ipynb
+│   ├── T2_3-UnitsOntology.ipynb
+│   ├── T2_5-DBRepoLoadView.ipynb
+│   ├── T3_1_ROCrate.ipynb
+│   ├── T3_3-FAIRML.ipynb
+│   └── T3_5_ModelCard.ipynb
 │
 ├── outputs/
 │   ├── diagrams/
@@ -102,6 +113,12 @@ DataStewardshipSS2026/
 │   │   ├── fig_cd_prediction.png
 │   │   ├── fig_feature_importance.png
 │   │   └── fig_pb_prediction.png
+│   │
+│   ├── metadata/
+│   │   ├── precipitationdata_croissant.json
+│   │   ├── stationcoordinates_croissant.json
+│   │   ├── FAIRML_model_cd
+│   │   └── FAIRML_model_multi
 │   │
 │   └── models/
 │       ├── model_cd_randomforest.pkl
@@ -131,26 +148,25 @@ DataStewardshipSS2026/
 
 Main machine learning workflow notebook containing:
 
-* preprocessing,
-* train/validation/test splitting,
-* model training,
-* evaluation,
-* prediction generation,
-* visualization generation.
-* 
----
+- preprocessing,
+- train/validation/test splitting,
+- model training,
+- evaluation,
+- prediction generation,
+- visualization generation.
+- ***
 
 ### `notebooks/dbrepo_schema_creation.ipynb`
 
 WP2/T2.1 notebook implementing:
 
-* relational schema design,
-* Third Normal Form (3NF) restructuring,
-* SQL schema generation,
-* ER diagram generation,
-* DBRepo table creation through the REST API,
-* metadata documentation,
-* provenance-aware publication.
+- relational schema design,
+- Third Normal Form (3NF) restructuring,
+- SQL schema generation,
+- ER diagram generation,
+- DBRepo table creation through the REST API,
+- metadata documentation,
+- provenance-aware publication.
 
 ---
 
@@ -158,11 +174,11 @@ WP2/T2.1 notebook implementing:
 
 Documents:
 
-* all relational tables,
-* column meanings,
-* units,
-* variable descriptions,
-* quality flag information.
+- all relational tables,
+- column meanings,
+- units,
+- variable descriptions,
+- quality flag information.
 
 ---
 
@@ -170,12 +186,12 @@ Documents:
 
 Documents:
 
-* original dataset source,
-* creators and DOI,
-* transformation workflow,
-* generated artefacts,
-* DBRepo publication process,
-* reproducibility information.
+- original dataset source,
+- creators and DOI,
+- transformation workflow,
+- generated artefacts,
+- DBRepo publication process,
+- reproducibility information.
 
 ---
 
@@ -218,9 +234,9 @@ outputs/figures/
 
 Examples include:
 
-* prediction comparison plots,
-* feature importance plots,
-* evaluation visualizations.
+- prediction comparison plots,
+- feature importance plots,
+- evaluation visualizations.
 
 ---
 
@@ -245,8 +261,8 @@ sql/
 
 including:
 
-* ER diagrams,
-* SQL CREATE statements.
+- ER diagrams,
+- SQL CREATE statements.
 
 ---
 
@@ -260,8 +276,6 @@ The relational schema documentation is available in:
 docs/data_dictionary.md
 ```
 
----
-
 ### Provenance Documentation
 
 Detailed provenance information is available in:
@@ -272,13 +286,93 @@ docs/provenance.md
 
 This includes:
 
-* original dataset provenance,
-* transformation workflow,
-* DBRepo publication steps,
-* student group contributions,
-* reproducibility information.
+- original dataset provenance,
+- transformation workflow,
+- DBRepo publication steps,
+- student group contributions,
+- reproducibility information.
 
 ---
+
+## Metadata Standards Documentation
+
+### RO-Crate
+
+RO-Crate metadata describing the complete experiment package is available in:
+
+```text
+ro-crate-metadata.json
+```
+
+The RO-Crate describes:
+
+- input datasets,
+- source dataset DOI,
+- source code,
+- trained machine learning models,
+- FAIR4ML metadata,
+- Croissant metadata,
+- Model Card documentation,
+- generated outputs,
+- licences,
+- contributors and ORCIDs,
+- external persistent identifiers.
+
+RO-Crate validation output is available in:
+
+```text
+docs/validation/ro-crate-validation.txt
+```
+
+### Model Card
+
+Model documentation is available in:
+
+```text
+docs/model-card.md
+```
+
+The Model Card describes:
+
+- model purpose,
+- intended use,
+- out-of-scope use,
+- training data,
+- evaluation metrics,
+- limitations,
+- ethical considerations,
+- licence information.
+
+### FAIR4ML Metadata
+
+FAIR4ML metadata records describing the trained machine learning models are available in:
+
+```text
+outputs/metadata/FAIRML_model_cd
+outputs/metadata/FAIRML_model_multi
+```
+
+### Croissant Metadata
+
+Croissant metadata records describing the input datasets are available in:
+
+```text
+outputs/metadata/precipitationdata_croissant.json
+outputs/metadata/stationcoordinates_croissant.json
+```
+
+### Persistent Identifiers
+
+Model Deposit DOI (TU Wien Research Data Repository):
+
+https://doi.org/10.70124/rwg1b-kfb59
+
+Generated Data Deposit DOI (TU Wien Research Data Repository):
+
+https://doi.org/10.70124/kcmvz-fkw96
+
+---
+
 ## Licences
 
 This project has three different types of artefacts and each one has its own licence. They are not the same so it is important to consider them separately.
@@ -308,14 +402,17 @@ Since the input dataset has a ShareAlike clause, any derived works need to carry
 The following SQL VIEW definitions were created to provide denormalised and ML-ready access to the relational DBRepo schema.
 
 ### ml_precipitation_features
+
 Purpose:
 Provides a cleaned, denormalised feature table for machine learning by joining precipitation measurements with station metadata and filtering invalid measurements using quality flags.
 
 ### pb_prediction_dataset
+
 Purpose:
 Provides training-ready records for Lead (Pb) prediction by selecting observations with valid Pb measurements.
 
 ### cd_prediction_dataset
+
 Purpose:
 Provides training-ready records for Cadmium (Cd) prediction by selecting observations with valid Cd measurements.
 

@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/"
+  },
+  "@type": "Dataset",
+  "name": "Station Coordinates Dataset",
+  "description": "Dataset containing precipitation monitoring station coordinates in Austria.",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "url": "https://doi.org/10.48436/b0g4h-rv840",
+
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "./data/stationcoordinates.csv",
+    "encodingFormat": "text/csv"
+  },
+
+  "recordSet": {
+    "@type": "cr:RecordSet",
+    "name": "stations",
+    "field": [
+
+      {
+        "@type": "cr:Field",
+        "name": "Ort",
+        "dataType": "string"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Lat",
+        "description": "Latitude",
+        "dataType": "float"
+      },
+
+      {
+        "@type": "cr:Field",
+        "name": "Long",
+        "description": "Longitude",
+        "dataType": "float"
+      }
+    ]
+  }
+}
