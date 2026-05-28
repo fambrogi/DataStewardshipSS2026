@@ -1,6 +1,16 @@
 # Prediction of Heavy Metal Concentrations (Pb, Cd) in Precipitation Using Machine Learning
 
-Data Stewardship SS2026 — FAIR and Reproducible Machine Learning Experiment
+[![DOI](https://zenodo.org/badge/1228036424.svg)](https://doi.org/10.5281/zenodo.20423764)
+
+
+### Authors
+
+| Family name        | Name          | Student Id | ORCID               |
+|--------------------|---------------|------------|---------------------|
+| Ambrogi            | Federico      | 01449911   | 0000-0002-9486-0444 |
+| Puthenpurayil Biju | Vijayalakshmi | 12551187   | 0009-0000-1739-2336 |
+| Saad               | Rashidul Amin | 12410035   | 0009-0004-0529-5546 |
+| Mian Azan          | Farooq        | 12433773   | 0009-0006-7973-2483 |
 
 ---
 
@@ -8,7 +18,8 @@ Data Stewardship SS2026 — FAIR and Reproducible Machine Learning Experiment
 
 This repository contains a machine learning experiment developed within a Data Stewardship and FAIR data management framework.
 
-The project investigates the prediction of missing heavy metal concentrations in precipitation chemistry datasets collected at Austrian monitoring stations.
+The project investigates the prediction of missing heavy metal concentrations in precipitation chemistry datasets,
+collected at Austrian monitoring stations.
 
 Specifically, the experiment focuses on predicting:
 
@@ -21,25 +32,16 @@ The repository also includes the relational DBRepo infrastructure developed for 
 
 ---
 
-## Authors
-
-* Federico Ambrogi — [01449911@student.tuwien.ac.at](mailto:01449911@student.tuwien.ac.at)
-* Puthenpurayil Biju Vijayalakshmi
-* Saad Rashidul Amin
-* Farooq Mian Azan
-
----
-
 ## Objectives
 
 Two machine learning approaches are implemented and compared.
 
-### 1. Sequential Prediction
+**1. Sequential Prediction**
 
 * Predict Pb using available environmental variables
 * Use predicted Pb values to predict Cd
 
-### 2. Multi-output Prediction
+**2. Multi-output Prediction**
 
 * Predict Pb and Cd simultaneously using a single model
 
@@ -135,7 +137,7 @@ Main machine learning workflow notebook containing:
 * evaluation,
 * prediction generation,
 * visualization generation.
-
+* 
 ---
 
 ### `notebooks/dbrepo_schema_creation.ipynb`
