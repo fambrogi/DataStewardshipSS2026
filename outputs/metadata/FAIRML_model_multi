@@ -1,16 +1,22 @@
 {
-    "fair4ml:name": "",
-    "fair4ml:dateCreated": "2026-05-20T13:57:37.762375Z",
-    "fair4ml:modelDetails": {
-        "name": "Pipeline",
-        "library": "scikit-learn",
-        "library_version": "1.8.0"
+    "fair4ml:dateCreated": "2026-05-28T12:38:54.396273Z",
+    "fair4ml:model": {
+        "fair4ml:name": "sklearn_randomForest",
+        "fair4ml:task": "Regression",
+        "fair4ml:intendedUse": "Prediction of heavy metals in precipitations",
+        "fair4ml:mlTask": "Regression",
+        "fair4ml:limitation": "Highly inaccurate, check with in-situ measurements whenever possibleSparse spatial coverage.Heavy metal measurements contain missing values.No validation outside the training period.",
+        "fair4ml:modelDetails": {
+            "schema:name": "Pipeline",
+            "library": "scikit-learn",
+            "library_version": "1.8.0",
+            "fair4ml:performance": "rms,mae",
+            "fair4ml:mlTask": "Regression"
+        }
     },
     "fair4ml:trainingData": {
-        "doi": "10.48436/b0g4h-rv840."
-    },
-    "fair4ml:performance": "rms,mae",
-    "fair4ml:intendedUse": "Prediction of heavy metals in precipitations",
-    "fair4ml:mlTask": "Regression",
-    "fair4ml:limitation": "Highly inaccurate, check with in-situ measurements whenever possibleSparse spatial coverage.Heavy metal measurements contain missing values.No validation outside the training period."
+        "schema:name": "Concentrations of major ions in wet precipitation samples in Austria",
+        "schema:author": "Kasper-Giebl Anne1",
+        "schema:doi": "10.48436/b0g4h-rv840."
+    }
 }
