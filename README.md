@@ -25,9 +25,14 @@ using chemistry datasets, collected at Austrian monitoring stations.
 
 Two machine learning approaches are implemented and compared.
 
+
 **1. Sequential Prediction**
+
 Predict Pb using available environmental variables, in a sequential fashio: first the Pb values are extracted, and then the results are used to predict the Cd precipitation values
+
+
 **2. Multi-output Prediction**
+
 Predict Pb and Cd simultaneously using a single ML model 
 
 ---
@@ -61,7 +66,9 @@ The dataset includes:
 * station metadata.
 
 The dataset includes two files: 
+
 **stationcoordinates.csv**: contains precipitation data including chemicals, ph, conductivity (size: 1.2 MB)
+
 **stationcoordinates.csv**: contains metadata of the observation stations (size: < 1 MB)
 
 ---
