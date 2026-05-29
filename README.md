@@ -2,7 +2,6 @@
 
 [![DOI](https://zenodo.org/badge/1228036424.svg)](https://doi.org/10.5281/zenodo.20423764)
 
-
 ### Authors
 
 | Family name        | Name          | Student Id | ORCID               |
@@ -14,53 +13,45 @@
 
 ---
 
-## Project Overview
+## Project Summary
 
-This repository contains a machine learning experiment developed within a Data Stewardship and FAIR data management framework.
+This repository contains a machine learning experiment developed within a *Data Stewardship and FAIR data management* framework.
 
-The project investigates the prediction of missing heavy metal concentrations in precipitation chemistry datasets,
-collected at Austrian monitoring stations.
-
-Specifically, the experiment focuses on predicting:
-
+The project predicts the concentrations of toxic heavy metal, 
 * Lead concentration (`Pb`)
 * Cadmium concentration (`Cd`)
 
-using environmental precipitation chemistry measurements and machine learning models.
-
-The repository also includes the relational DBRepo infrastructure developed for WP2/T2.1 of the course assignment.
-
----
-
-## Objectives
+using chemistry datasets, collected at Austrian monitoring stations.
 
 Two machine learning approaches are implemented and compared.
 
 **1. Sequential Prediction**
-
-* Predict Pb using available environmental variables
-* Use predicted Pb values to predict Cd
-
+Predict Pb using available environmental variables, in a sequential fashio: first the Pb values are extracted, and then the results are used to predict the Cd precipitation values
 **2. Multi-output Prediction**
-
-* Predict Pb and Cd simultaneously using a single model
+Predict Pb and Cd simultaneously using a single ML model 
 
 ---
 
+## FAIR principles
+
+This project was developed following FAIR (Findable, Accessible, Interoperable, and Reusable) data management principles and reproducible research practices.  To support FAIR compliance, the project incorporates:
+
+- structured metadata documentation,
+- explicit variable and unit definitions,
+- reusable database retrieval interfaces,
+- version-controlled source code
+- machine learning model preservation and distribution
+- clear data processing pipelines, analytical and validation procedures
+- licensing for reuse and redistribution.
+
 ## Data Source
 
-The experiment reuses the dataset:
+The experiment reuses the dataset **Concentrations of major ions in wet precipitation samples in Austria**
+from the *TU Wien Research Data Repository*
 
-**Concentrations of major ions in wet precipitation samples in Austria**
-
-Original repository:
-TU Wien Research Data Repository
-
-Original DOI:
-https://doi.org/10.48436/b0g4h-rv840
+DOI: https://doi.org/10.48436/b0g4h-rv840
 
 The dataset includes:
-
 * precipitation chemistry measurements,
 * ion concentrations,
 * pH values,
@@ -69,8 +60,9 @@ The dataset includes:
 * quality flags,
 * station metadata.
 
-The student group did not create the original precipitation measurements.
-The repository restructures and documents the data for FAIR and reproducible reuse within the course assignment.
+The dataset includes two files: 
+**stationcoordinates.csv**: contains precipitation data including chemicals, ph, conductivity (size: 1.2 MB)
+**stationcoordinates.csv**: contains metadata of the observation stations (size: < 1 MB)
 
 ---
 
@@ -93,6 +85,7 @@ DataStewardshipSS2026/
 ├── notebooks/
 │   ├── dbrepo_schema_creation.ipynb
 │   └── predict_heavymetal_precipitation.ipynb
+│   └── README.md
 │
 ├── outputs/
 │   ├── diagrams/
@@ -104,10 +97,19 @@ DataStewardshipSS2026/
 │   │   └── fig_pb_prediction.png
 │   │
 │   └── models/
-│       ├── model_cd_randomforest.pkl
-│       └── model_multi_randomforest.pkl
-│
-├── sql/
+│   │   ├── model_cd_randomforest.pkl
+│   │   ├── model_multi_randomforest.pkl
+│   │
+│   ├── metadata/
+│   │   ├── FAIRML_model_cd.md
+│   │   ├── FAIRML_model_multi.md
+│   │   └── a
+│   │   └── a
+│   │   └── a
+│   │   └── a
+│   │
+│   ├── sql/
+│   ├── create_views.sql/
 │   └── create_tables.sql
 │
 ├── src/
@@ -122,60 +124,6 @@ DataStewardshipSS2026/
 ├── conda_env
 └── README.md
 ```
-
----
-
-## Main Components
-
-### `notebooks/predict_heavymetal_precipitation.ipynb`
-
-Main machine learning workflow notebook containing:
-
-* preprocessing,
-* train/validation/test splitting,
-* model training,
-* evaluation,
-* prediction generation,
-* visualization generation.
-* 
----
-
-### `notebooks/dbrepo_schema_creation.ipynb`
-
-WP2/T2.1 notebook implementing:
-
-* relational schema design,
-* Third Normal Form (3NF) restructuring,
-* SQL schema generation,
-* ER diagram generation,
-* DBRepo table creation through the REST API,
-* metadata documentation,
-* provenance-aware publication.
-
----
-
-### `docs/data_dictionary.md`
-
-Documents:
-
-* all relational tables,
-* column meanings,
-* units,
-* variable descriptions,
-* quality flag information.
-
----
-
-### `docs/provenance.md`
-
-Documents:
-
-* original dataset source,
-* creators and DOI,
-* transformation workflow,
-* generated artefacts,
-* DBRepo publication process,
-* reproducibility information.
 
 ---
 
@@ -226,7 +174,7 @@ Examples include:
 
 ### Trained Models
 
-Serialized trained models are stored in:
+Trained models are stored in th eformat of pickle files in:
 
 ```text
 outputs/models/
@@ -248,35 +196,21 @@ including:
 * ER diagrams,
 * SQL CREATE statements.
 
+
+[!NOTE] 
+The SQL commands are not used directly for the creation of the instance dataset on the TU WIEN DB Repsitory
+ 
 ---
 
 ## FAIR and Stewardship Documentation
-
-### Data Dictionary
-
-The relational schema documentation is available in:
-
+In line with FAIR principles,
+Under
 ```text
-docs/data_dictionary.md
+outputs/metadata/
 ```
+we stored Croissant, CodeMeta, RO-Crate, and FAIR4ML metadata files were used to improve the interoperability, reproducibility, discoverability, and long-term reusability of the dataset, software, workflows, and machine learning models by providing standardized machine-readable metadata.
 
----
-
-### Provenance Documentation
-
-Detailed provenance information is available in:
-
-```text
-docs/provenance.md
-```
-
-This includes:
-
-* original dataset provenance,
-* transformation workflow,
-* DBRepo publication steps,
-* student group contributions,
-* reproducibility information.
+Additionally, we created explicitly a table in "data/units.csv" which reports the URl of the units describing the physical measurement used for experiment, mapping to the ontology concepts of the  SI Digital Framework  http://si-digital-framework.org/ , which provides standardized representations of SI (System of Units).
 
 ---
 ## Licences
@@ -303,61 +237,3 @@ The outputs of this project including the trained models, prediction results, ev
 
 Since the input dataset has a ShareAlike clause, any derived works need to carry the same licence. The output data is derived from that source so CC BY-NC-SA 4.0 applies here as well. This licence is also stated in all deposit records in the TU Wien Research Data Repository.
 
-## SQL Views
-
-The following SQL VIEW definitions were created to provide denormalised and ML-ready access to the relational DBRepo schema.
-
-### ml_precipitation_features
-Purpose:
-Provides a cleaned, denormalised feature table for machine learning by joining precipitation measurements with station metadata and filtering invalid measurements using quality flags.
-
-### pb_prediction_dataset
-Purpose:
-Provides training-ready records for Lead (Pb) prediction by selecting observations with valid Pb measurements.
-
-### cd_prediction_dataset
-Purpose:
-Provides training-ready records for Cadmium (Cd) prediction by selecting observations with valid Cd measurements.
-
-The views are defined in:
-
-sql/create_views.sql
-
-## DBRepo REST API Reimplementation
-
-The original local CSV-based loading was reimplemented to exclusively use the DBRepo REST API, as required in WP2/T2.6.
-
-No local CSV reads are used in the final experiment code.
-
-### API Base URL
-
-https://test.dbrepo.tuwien.ac.at/api
-
-### Database ID
-
-bfa4385b-54a9-4ae3-b4f4-cb503d7bb016
-
-### Endpoints Used
-
-ML feature view endpoint:
-
-ml_precipitation_features
-
-The experiment retrieves machine-learning-ready data directly from the DBRepo VIEW endpoint.
-
-### Authentication
-
-Authentication is handled using DBRepo credentials configured through the REST client.
-
-### Error Handling
-
-The implementation includes handling for:
-
-- connection failures
-- request timeouts
-- unexpected HTTP response codes
-- malformed API responses
-
-### Reproducibility Verification
-
-The API-based implementation was verified to produce identical machine learning outputs to the original local CSV-based experiment.

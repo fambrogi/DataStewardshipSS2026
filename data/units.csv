@@ -1,0 +1,6 @@
+unit,symbol,meaning,canonical_si,conversion_to_si,ontology
+1,mm,millimetre,metre,0.001,http://si-digital-framework.org/SI/units/millimetre
+2,µS/cm,microsiemens per centimetre,siemens per metre,0.0001,http://si-digital-framework.org/SI/units/siemens-per-metre
+3,mg/L,milligrams per litre,kilogram per cubic metre,0.001,http://si-digital-framework.org/SI/units/kilogram-per-cubic-metre
+4,µg/L,micrograms per litre,kilogram per cubic metre,1e-06,http://si-digital-framework.org/SI/units/kilogram-per-cubic-metre
+5,dimensionless,dimensionless quantity,unity,1.0,http://si-digital-framework.org/SI/units/unity
